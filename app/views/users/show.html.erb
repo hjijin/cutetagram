@@ -2,7 +2,9 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="https://picsum.photos/400/400?random=1">
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar %>
+        <%end %>
       </div>
     </div>
     <div class="col-md-8 basic-info">
@@ -15,7 +17,7 @@
         <% end %>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= @posts.count %></span> posts</li>
         <li><span>195</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -44,14 +46,11 @@
   </div>
 
   <div class="user-images">
+    <% @posts.each do |post|%>
     <div class="wrapper">
-      <img src="https://picsum.photos/400/400?random=2">
+      <%=image_tag post.image.first %>
     </div>
-    <div class="wrapper">
-      <img src="https://picsum.photos/400/400?random=3">
-    </div>
-    <div class="wrapper">
-      <img src="https://picsum.photos/400/400?random=4">
-    </div>
+  <% end %>
+</div>
   </div>
 </div>
