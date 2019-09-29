@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2019_09_29_081144) do
     t.string "name"
     t.string "website"
     t.text "bio"
-    t.integer "phone"
-    t.string "gender"
+    t.string "phone"
+    t.integer "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
